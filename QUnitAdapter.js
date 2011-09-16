@@ -7,13 +7,13 @@
  */
 (function() {
 	if(!(window.equiv)) {
-	    throw new Error("QUnitAdapter.js - Unable to find equiv function. Ensure you have added equiv.js to the load section of your jsTestDriver.conf");
+		throw new Error("QUnitAdapter.js - Unable to find equiv function. Ensure you have added equiv.js to the load section of your jsTestDriver.conf");
 	}
 	
 	var QUnitTestCase, lifecycle;
 
 	window.module = function(name, lifecycle_) {
-    	QUnitTestCase = TestCase(name);
+    	QUnitTestCase = AsyncTestCase(name);
     	lifecycle = lifecycle_ || {};
 	};
     
