@@ -1,10 +1,10 @@
-/**
- * QUnitAdapter
- * @author Adam McCann <adam.mccann@videogamer.com>
- * 
- * Wrapper/adapter for js-test-driver for QUnit.
- * Extended from QUnitAdapter.js
- */
+/*
+QUnitAdapter
+
+Run qunit tests using Google's JS Test Driver. Maps async methods stop() and start().
+
+This provides almost the same api as qunit. Extended from original adapter by Karl Okeeffe. 
+*/
 (function() {
 	if(!(window.equiv)) {
 		throw new Error("QUnitAdapter.js - Unable to find equiv function. Ensure you have added equiv.js to the load section of your jsTestDriver.conf");
