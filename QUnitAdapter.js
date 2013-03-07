@@ -89,7 +89,15 @@ This provides almost the same api as qunit. Extended from original adapter by Ka
 					});
 			    };
 
-			    test.call(context);
+                try {
+                    test.call(context);
+                } catch (e) {
+                    // Ensure teardown is called on exceptions so cleanup (like shutting down sinon.js fakeServer) happens
+                    if (lifecycle.teardown) {
+                        lifecycle.teardown.call(context);
+                    }
+                    throw e;
+                }
 
 			    window.stop = origStop;
 
